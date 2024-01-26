@@ -15,7 +15,7 @@ public class Search_Algorithms {
 
 	}
 
-	protected int integer_binary_search(int arr[], int key) {
+	protected int integer_binary_search_iterative(int arr[], int key) {
 		int size = arr.length;
 		int left = 0;
 		int right = size - 1;
