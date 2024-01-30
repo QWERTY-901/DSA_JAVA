@@ -12,7 +12,7 @@ public class Main {
 //		Linked_List_Algorithms linking= new Linked_List();
 //		Sample_testing test= new Sample_testing();
 		int[] arr= {45, 89, 76, 55, 90, 33, 21};
-		System.out.println("THE SORTED ARRAY USING BUBBLE SORT:\n");
+		System.out.println("THE SORTED ARRAY USING SHELL SORT:\n");
 		arr=sorting.integer_bubble_sort(arr, arr.length);
 		while(arr.length!=0&& index<arr.length) {
 			System.out.println(arr[index] +'\t');

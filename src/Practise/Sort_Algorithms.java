@@ -50,7 +50,20 @@ public class Sort_Algorithms {
 		return arr;
 	}
 	
-	protected int[] integer_shell_sort(int arr[], int size) {
+	protected int[] integer_shell_sort(int arr[], int size) {// time complexity is O(nlog(n))
+		int gap, i, j, gvalue;
+		for (gap = size / 2; gap > 0; gap = gap / 2) {
+			for (i = gap; i < size; i++) {
+				gvalue = arr[i];
+				j = i - gap;
+				while (j >= 0 && arr[j] > gvalue) {
+					arr[j + gap] = arr[j];
+					j = j - gap;
+				}
+				arr[j + gap] = gvalue;
+			}
+		}
+
 		return arr;
 	}
 
