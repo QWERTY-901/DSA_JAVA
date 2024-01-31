@@ -111,6 +111,19 @@ public class Sort_Algorithms {
 		return arr;
 	}
 	
+	protected void integer_quick_sort(int arr, int high, int low) {// time complexity is O(nlog(n))
+		if(low< high) {
+			int pi= integer_partition(arr, high, low);
+			integer_quick_sort(arr, low, pi-1);
+			integer_quick_sort(arr, pi+1, high);
+		}
+		
+	}
+	
+	protected int integer_partition(int arr, int high, int low) {
+		return -1;
+	}
+	
 		
 
 }
