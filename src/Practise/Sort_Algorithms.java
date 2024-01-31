@@ -3,15 +3,15 @@ package Practise;
 public class Sort_Algorithms {
 
 	protected int[] integer_selection_sort(int arr[], int size) {
-		int position, pos, sort_elem, temp;
-		for (pos = 0; pos < size - 1; pos++) {
-			position = pos;
-			for (sort_elem = pos + 1; sort_elem < size; sort_elem++) {
-				if (arr[sort_elem] < arr[position]) {
-					position = sort_elem;
+		int position, posi, posj, temp;
+		for (posi = 0; posi < size - 1; posi++) {
+			position = posi;
+			for (posj = posi + 1; posj < size; posj++) {
+				if (arr[posj] < arr[position]) {
+					position = posj;
 				}
-				temp = arr[pos];
-				arr[pos] = arr[position];
+				temp = arr[posi];
+				arr[posi] = arr[position];
 				arr[position] = temp;
 			}
 
@@ -38,8 +38,8 @@ public class Sort_Algorithms {
 	
 	protected int[] integer_bubble_sort(int arr[], int size) {
 		int elemt, pass, temp;
-		for (pass = 0; pass < size - 1; pass++) {
-			for (elemt = 0; elemt < size - 1; elemt++) {
+		for (pass = 0; pass < size; pass++) {
+			for (elemt = 0; elemt < size-1; elemt++) {
 				if (arr[elemt] > arr[elemt + 1]) {
 					temp = arr[elemt];
 					arr[elemt] = arr[elemt + 1];
@@ -66,5 +66,51 @@ public class Sort_Algorithms {
 
 		return arr;
 	}
+	
+	
+	protected int[] integer_merge_sort(int arr[], int left, int right) {
+		if (left < right) {
+			int mid = (left + right) / 2;
+			integer_merge_sort(arr, left, mid);
+			integer_merge_sort(arr, mid + 1, right);
+			arr=integer_merge(arr, left, mid, right);
+		}
+		return arr;
+	}
+
+	protected int[] integer_merge(int arr[], int left, int mid, int right) {
+		int i= left;
+		int j= mid+1;
+		int k= left;
+		int brr[]= new int[right +1];
+		while(i<= mid && j<= right) {
+			if(arr[i]< arr[j]) {
+				brr[k]= arr[i];
+				i=i+1;
+			}
+			else {
+				brr[k]= arr[j];
+				j=j+1;
+			}
+			k=k+1;
+		}
+		while(i<= mid) {
+			brr[k]= arr[i];
+			i=i+1;
+			k=k+1;
+		}
+		while(j<= right) {
+			brr[k]= arr[j];
+			j=j+1;
+			k=k+1;
+		}
+		for(int m=left;m<=right;m++) {
+			arr[m]= brr[m];
+		}
+		
+		return arr;
+	}
+	
+		
 
 }
