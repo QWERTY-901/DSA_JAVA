@@ -111,17 +111,34 @@ public class Sort_Algorithms {
 		return arr;
 	}
 	
-	protected void integer_quick_sort(int arr, int high, int low) {// time complexity is O(nlog(n))
+	protected int[] integer_quick_sort(int arr[], int low, int high) {// time complexity is O(nlog(n))
 		if(low< high) {
-			int pi= integer_partition(arr, high, low);
+			int pi= integer_partition(arr, low, high);
 			integer_quick_sort(arr, low, pi-1);
 			integer_quick_sort(arr, pi+1, high);
 		}
-		
+		return arr;
 	}
 	
-	protected int integer_partition(int arr, int high, int low) {
-		return -1;
+	protected int integer_partition(int arr[], int low, int high) {
+		int pivot= arr[low];
+		int i=low+1,j= high;
+		do {
+			while(i<=j && arr[i]<= pivot)
+				i=i+1;
+			while(i<=j && arr[j]> pivot)
+				j=j-1;
+			if(i<=j)
+				integer_swap(arr, i, j);
+		}while(i<j);
+			integer_swap(arr, low, j);
+		return j;
+	}
+	
+	protected void integer_swap(int arr[], int i, int j) {
+		int temp= arr[i];
+		arr[i]= arr[j];
+		arr[j]= temp;		
 	}
 	
 		
